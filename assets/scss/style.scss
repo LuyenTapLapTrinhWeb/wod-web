@@ -1,0 +1,124 @@
+$background-black: black;
+$text-white: white;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-image: url('../images/Screenshot_20210103_205401.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+}
+
+h1,
+img,
+svg,
+a,
+p {
+    text-align: right;
+    color: $text-white;
+}
+
+h1 {
+    font-size: 48px;
+}
+
+p {
+    font-size: 36px;
+}
+
+img {
+    height: 100px;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+}
+
+.image {
+    display: flex;
+    width: 50vh;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.5);
+    /* Black see-through */
+    color: #f1f1f1;
+    width: 100%;
+    transition: .5s ease;
+    opacity: .75;
+    color: $text-white;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.container:hover .overlay {
+    opacity: 1;
+}
+
+.box-shadow {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.text-white {
+    color: $text-white;
+}
+
+.description {
+    height: auto;
+    border: 1px;
+    text-align: justify;
+    background: $background-black;
+    opacity: .75;
+    padding: 50px;
+    width: 70%;
+    display: block;
+}
+
+.flex-item {
+    display: flex;
+    flex: auto;
+    flex-direction: column;
+}
+
+
+/* Responsive layout - makes a one column layout instead of a two-column layout */
+
+@media (max-width: 800px) {
+    .flex-container {
+        flex-direction: column;
+    }
+}
+
+nav {
+    background-color: black;
+    color: $text-white;
+    font-size: 26px;
+    height: 100%;
+    opacity: 0.75;
+    & ul {
+        list-style-type: none;
+        & li {
+            opacity: 1;
+            margin-left: 5px;
+            width: 30%;
+            & a {
+                text-decoration: none;
+                color: white;
+            }
+        }
+    }
+}

@@ -1,7 +1,14 @@
-<nav>
-  <ul class="flex-container">
-    <li><a [routerLink]="['/gioithieu']" routerLinkActive="router-link-active">Giới thiệu</a></li>
-  </ul>
-</nav>
-
-<router-outlet></router-outlet>
+<p>
+  <mat-toolbar color="primary">
+    <button mat-raise-button color="primary">
+      <a [routerLink]="['/gioithieu']" routerLinkActive="router-link-active">
+        Giới thiệu
+      </a>
+    </button>
+    <button mat-raise-button color="primary">
+      <a [routerLink]="['/videolist']" routerLinkActive="router-link-active">
+        Danh sách video
+      </a>
+    </button>
+  </mat-toolbar>
+</p>

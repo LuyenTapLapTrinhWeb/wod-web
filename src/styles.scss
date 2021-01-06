@@ -1,0 +1,61 @@
+$background-black: black;
+$text-white: white;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+  background-image: url('./assets/images/Screenshot_20210103_205401.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+h1,
+img,
+svg,
+a,
+p {
+  text-align: right;
+  color: $text-white;
+}
+
+h1 {
+  font-size: 48px;
+}
+
+p {
+  font-size: 36px;
+}
+
+img {
+  height: 100px;
+}
+
+nav {
+  background-color: black;
+  color: $text-white;
+  font-size: 26px;
+  height: 100%;
+  opacity: 0.75;
+
+  & ul {
+    list-style-type: none;
+
+    & li {
+      opacity: 1;
+      margin-left: 5px;
+      width: 30%;
+
+      & a {
+        text-decoration: none;
+        color: $text-white;
+      }
+    }
+  }
+}

@@ -11,4 +11,5 @@ export const VIDEOS: Video[] = [
   { videoId: '8', videoName: 'Lâu đài băng 2', videoShareLink: 'https://youtu.be/bLnntxcSFrI', videoFrameLink: 'https://www.youtube.com/embed/bLnntxcSFrI', videoThumbNail: '../assets/images/Screenshot_20201220_090235.jpg' },
   { videoId: '9', videoName: 'Chế tạo phụ kiện hagen', videoShareLink: 'https://youtu.be/KMCt86KlJfg', videoFrameLink: 'https://www.youtube.com/embed/KMCt86KlJfg', videoThumbNail: '../assets/images/Screenshot_20201227_140435.jpg' },
   { videoId: '10', videoName: 'Chế tạo phụ kiện 3 Ngọc rồng siêu cấp 2', videoShareLink: 'https://youtu.be/_7ZId_nSxZA', videoFrameLink: 'https://www.youtube.com/embed/_7ZId_nSxZA', videoThumbNail: '../assets/images/Screenshot_20210102_231944.jpg' },
+  // tslint:disable-next-line:eofline
 ];

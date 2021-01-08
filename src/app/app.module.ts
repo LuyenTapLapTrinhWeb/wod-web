@@ -10,12 +10,21 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LinksService } from './services/links.service';
+import { IntroduceService } from './services/introduce.service';
+import { VideoDetailComponent } from './video-detail/video-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
     IntroduceComponent,
     VideoComponent,
+    NavBarComponent,
+    VideoDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,8 +34,13 @@ import { MatButtonModule } from '@angular/material/button';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatListModule, MatGridListModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    LinksService,
+    IntroduceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

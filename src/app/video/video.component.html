@@ -1,1 +1,23 @@
-<h1>Video</h1>
+<div *ngIf="videos" fxFlex>
+    <h1>Video successful!</h1>
+    <mat-grid-list cols='3' rowHeight="200px" *ngFor="let video of videos" fxFlexFill fxLayoutGap="20px"
+        fxFlex="column">
+        <mat-grid-tile>
+            <img [src]="video.videoThumbNail" alt="{{video.videoName}}" [routerLink]="['/video', video.videoId]">
+            <mat-grid-tile-header>
+                <h1>{{video.videoName|uppercase}}</h1>
+            </mat-grid-tile-header>
+            <mat-grid-tile-footer color="primary">
+                <a mat-button color="primary" href="{{video.videoShareLink}}" target="_blank">Xem ngay!</a>
+            </mat-grid-tile-footer>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <div>
+        <app-video-detail></app-video-detail>
+    </div>
+</div>
+
+<div *ngIf="!videos">
+    <p>videos Loading. . .</p>
+    <mat-spinner></mat-spinner>
+</div>

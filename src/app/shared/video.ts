@@ -4,4 +4,5 @@ export class Video {
   videoShareLink: string;
   videoFrameLink: string;
   videoThumbNail: string;
+  // tslint:disable-next-line:eofline
 }

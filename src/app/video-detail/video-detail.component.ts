@@ -16,7 +16,7 @@ export class VideoDetailComponent implements OnInit {
   }
   onBack(): void {
     if (window.history.length > 1) {
-      this.location.back();
+      // this.location.back();
     } else {
       this.router.navigate(['/home']);
     }

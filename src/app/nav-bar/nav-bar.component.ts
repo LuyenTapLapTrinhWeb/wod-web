@@ -7,7 +7,7 @@ import { Link } from '../shared/link';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  styleUrls: ['./nav-bar.component.scss', './nav-bar.component.mobile.scss']
 })
 export class NavBarComponent implements OnInit {
   links: Link[];

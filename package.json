@@ -4,11 +4,11 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --output-path docs --base-href /flex-app/",
+    "build": "ng build --prod --output-path docs --base-href /wod-web/",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy":"gh-pages -d dist/flex-app"
+    "deploy":"gh-pages -d docs"
   },
   "private": true,
   "homepage": "https://luyentaplaptrinhweb.github.io/wod-web/",

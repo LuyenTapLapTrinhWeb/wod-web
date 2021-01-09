@@ -1,8 +1,12 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap");
 @import url("https://fonts.googleapis.com/icon?family=Material+Icons");
-@import url('https://fonts.googleapis.com/css2?family=Snowburst+One&display=swap');
-$font-family-SnowburstOne: "Snowburst One";
+@import url("https://fonts.googleapis.com/css2?family=Snowburst+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Iceberg&display=swap");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:800,300);
+@import url("https://fonts.googleapis.com/css?family=Yesteryear");
+
 $font-family-Iceberg: 'Iceberg', cursive;
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -28,6 +32,7 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
+	font-family: $font-family-Iceberg;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 

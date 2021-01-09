@@ -3,7 +3,7 @@ import { IntroduceService } from '../services/introduce.service';
 @Component({
   selector: 'app-introduce',
   templateUrl: './introduce.component.html',
-  styleUrls: ['./introduce.component.scss']
+  styleUrls: ['./introduce.component.scss', './introduce.component.mobile.scss']
 })
 export class IntroduceComponent implements OnInit {
   introduces = [];

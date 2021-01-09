@@ -5,7 +5,7 @@ import { Link } from '../shared/link';
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss', './footer.component.mobile.scss']
 })
 export class FooterComponent implements OnInit {
   links: Link[];

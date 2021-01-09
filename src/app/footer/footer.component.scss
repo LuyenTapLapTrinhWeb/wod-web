@@ -1,13 +1,40 @@
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+$background-color-purple: #a44fc9;
+$background-color-purple-dark: #57276b;
+$background-color-purple-light: #a785b6;
+@mixin center-center {
+    justify-content: center;
+    align-items: center;
+}
+@mixin start-center {
+    justify-content: start;
+    align-items: center;
+}
+
+@mixin space-around-stretch {
+    justify-content: space-around;
+    align-items: stretch;
+}
+
+@mixin start-stretch {
+    justify-content: start;
+    align-items: stretch;
+}
 .footer {
-    background: #a44fc9;
-    text-align: center;
+    background: $background-color-purple;
+    text-align: left;
     padding: 20px;
     font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    button.mat-button {
+        background-color: $background-color-purple-light;
+    }
 }
-.cp-text {
+.cpr-text {
     color: (0, 0, 0, 0.7);
     text-shadow: 0 1px rgba(255, 255, 255, 0.1);
-    align-items: center;
+    text-align: center;
     a {
         :hover {
             color: chartreuse;
@@ -16,4 +43,12 @@
             color: aliceblue;
         }
     }
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    @include center-center();
+}
+.active {
+    background-color: $background-color-purple-dark;
 }

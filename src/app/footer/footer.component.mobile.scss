@@ -1,0 +1,85 @@
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    /* Extra large devices (large laptops and desktops, 1200px and up) */
+    $background-color-purple: #a44fc9;
+    $background-color-purple-dark: #57276b;
+    $background-color-purple-light: #a785b6;
+    @mixin center-center {
+        justify-content: center;
+        align-items: center;
+    }
+    @mixin end-center {
+        justify-content: end;
+        align-items: center;
+    }
+    @mixin start-center {
+        justify-content: start;
+        align-items: center;
+    }
+
+    @mixin space-around-stretch {
+        justify-content: space-around;
+        align-items: stretch;
+    }
+    @mixin space-between-stretch {
+        justify-content: space-between;
+        align-items: stretch;
+    }
+
+    @mixin start-stretch {
+        justify-content: start;
+        align-items: stretch;
+    }
+    .footer {
+        background: $background-color-purple;
+        text-align: left;
+        padding: 20px;
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        button.mat-button {
+            background-color: $background-color-purple-light;
+        }
+        .mat-list-base .mat-list-item .mat-list-item-content,
+        .mat-list-base .mat-list-option .mat-list-item-content {
+            align-items: stretch;
+            justify-content: stretch;
+            flex-direction: column;
+        }
+        .mat-list-item-content {
+            padding: 0 !important;
+        }
+        h2.links {
+            text-align: center;
+        }
+        button.mat-focus-indicator.mat-button.mat-button-base {
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .cpr-text {
+        color: (0, 0, 0, 0.7);
+        text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+        text-align: center;
+        a {
+            :hover {
+                color: chartreuse;
+            }
+            :link {
+                color: aliceblue;
+            }
+        }
+    }
+    .row {
+        display: flex;
+        flex-direction: column;
+        @include space-between-stretch();
+        margin-bottom: 20px;
+    }
+    .row:last-child {
+        @include end-center();
+    }
+    .active {
+        background-color: $background-color-purple-dark;
+    }
+}

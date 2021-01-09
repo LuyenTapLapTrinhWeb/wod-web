@@ -1,15 +1,17 @@
-<footer class="footer" *ngIf="links" fxFlexFill>
+<footer class="footer" *ngIf="links">
     <div class="row">
-        <mat-list *ngFor="let link in links">
+        <h2 class="links">Links</h2>
+        <mat-list *ngFor="let link of links" color="primary">
             <mat-list-item>
-                <a [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a>
+                <button mat-button [routerLink]="link.url" routerLinkActive="active">{{link.name|uppercase}}</button>
             </mat-list-item>
         </mat-list>
     </div>
     <!-- Copyright -->
     <div class="row">
-        <p class="cp-text">
-            © Copyright 2020:<a href="https://icie-wod.com/"> icie-wod.com</a>. All rights reserved.
+        <p class="cpr-text">
+            © Copyright 2020:<a href="https://luyentaplaptrinhweb.github.io/wod-web">
+                luyentaplaptrinhweb.github.io/wod-web</a>. All rights reserved.
         </p>
     </div>
     <!-- Copyright -->

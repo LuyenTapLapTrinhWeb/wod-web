@@ -1,0 +1,19 @@
+.footer {
+    background: #a44fc9;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+}
+.cp-text {
+    color: (0, 0, 0, 0.7);
+    text-shadow: 0 1px rgba(255, 255, 255, 0.1);
+    align-items: center;
+    a {
+        :hover {
+            color: chartreuse;
+        }
+        :link {
+            color: aliceblue;
+        }
+    }
+}

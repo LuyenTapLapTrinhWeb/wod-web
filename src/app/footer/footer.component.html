@@ -1,12 +1,21 @@
-<nav>
-    <mat-list *ngFor="let link in links">
-        <mat-list-item>
-            <a [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a>
-        </mat-list-item>
-    </mat-list>
-</nav>
-<!-- Copyright -->
-<div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://icie-wod.com/"> icie-wod.com</a>
+<footer class="footer" *ngIf="links" fxFlexFill>
+    <div class="row">
+        <mat-list *ngFor="let link in links">
+            <mat-list-item>
+                <a [routerLink]="link.url" routerLinkActive="active">{{link.name}}</a>
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <!-- Copyright -->
+    <div class="row">
+        <p class="cp-text">
+            © Copyright 2020:<a href="https://icie-wod.com/"> icie-wod.com</a>. All rights reserved.
+        </p>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+<div *ngIf="!links">
+    <mat-spinner></mat-spinner>
+    <h4>Footer Loading . . .</h4>
 </div>
-<!-- Copyright -->

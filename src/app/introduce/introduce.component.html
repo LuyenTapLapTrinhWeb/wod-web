@@ -1,1 +1,49 @@
-<h1>introduce success!</h1>
+<div class="container" *ngIf="introduces">
+    <!-- <h1 class="text-center">introduce success!</h1> -->
+    <div class="bg-image">
+        <!-- <h1 class="title">LÂU ĐÀI BĂNG</h1> -->
+        <app-logo></app-logo>
+    </div>
+    <div class="row">
+        <div class="overlay">
+            <p class="description center">
+                Xin chào tất cả các thợ săn, <br>
+                Đây là website Lâu Đài Băng viết bằng HTML SCSS Angular. Được viết bởi tác giả
+                <strong>SOK KIM THANH - FRONT-END DEVELOPER</strong> với mục đích là giới thiệu công hội Lâu Đài Băng và
+                hướng dẫn
+                thợ săn tân thủ tăng CP trong trò chơi World of Dragonnest (WOD).
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <mat-list>
+            <mat-list-item *ngFor="let introduce in introduces">
+                <mat-card>
+                    <mat-card-header>
+                        <img [src]="introduce.url" [alt]="introduce.name">
+                        <mat-card-title>{{introduce.name|uppercase}}</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-content>
+                        <p>{{introduce.description|uppercase}}</p>
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button mat-button>
+                            <mat-icon>like</mat-icon><span>
+                                Like
+                            </span>
+                        </button>
+                    </mat-card-actions>
+                </mat-card>
+            </mat-list-item>
+        </mat-list>
+    </div>
+    <div class="row">
+        <app-footer></app-footer>
+    </div>
+</div>
+
+
+<!-- <div *ngIf="!introduces">
+    <mat-spinner></mat-spinner>
+    <h1>loading introduces . . . </h1>
+</div> -->

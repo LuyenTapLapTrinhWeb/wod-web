@@ -13,11 +13,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
+
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { LinksService } from './services/links.service';
 import { IntroduceService } from './services/introduce.service';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
+import { FooterComponent } from './footer/footer.component';
+import { LogoComponent } from './logo/logo.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +30,8 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
     VideoComponent,
     NavBarComponent,
     VideoDetailComponent,
+    FooterComponent,
+    LogoComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,8 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
     MatIconModule,
     MatButtonModule,
     MatListModule, MatGridListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatCardModule
   ],
   providers: [
     LinksService,

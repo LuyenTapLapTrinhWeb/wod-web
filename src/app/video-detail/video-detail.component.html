@@ -5,10 +5,17 @@
             <mat-card-title>{{video.videoName | uppercase}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-            <img width="600" [src]="video.videoThumbNail" [alt]="video.videoName">
+            <img mat-card-image width="600" [src]="video.videoThumbNail" [alt]="video.videoName">
         </mat-card-content>
+        <iframe width="560" height="315" [src]="video.videoFrameLink" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
         <mat-card-footer>
-            <a mat-button color="primary" (click)="onBack()">Quay Lại</a>
+            <mat-card-actions>
+                <button mat-button color="primary" (click)="onBack()">Quay Lại</button>
+                <a mat-button color="primary" (click)="onBack()" [href]="video.videoShareLink" target="_blank">Xem
+                    Video</a>
+            </mat-card-actions>
         </mat-card-footer>
     </mat-card>
 </div>

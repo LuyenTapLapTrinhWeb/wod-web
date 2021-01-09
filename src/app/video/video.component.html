@@ -8,7 +8,7 @@
                 <h1>{{video.videoName|uppercase}}</h1>
             </mat-grid-tile-header>
             <mat-grid-tile-footer color="primary">
-                <a mat-button color="primary" href="{{video.videoShareLink}}" target="_blank">Xem ngay!</a>
+                <a mat-button color="primary" [routerLink]="['/video', video.videoId]">Xem chi tiết</a>
             </mat-grid-tile-footer>
         </mat-grid-tile>
     </mat-grid-list>

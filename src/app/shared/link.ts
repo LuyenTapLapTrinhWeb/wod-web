@@ -3,5 +3,6 @@ export class Link {
     name: string;
     description: string;
     url: string;
+    show: boolean;
     // tslint:disable-next-line:eofline
 }

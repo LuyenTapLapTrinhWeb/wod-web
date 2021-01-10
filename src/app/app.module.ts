@@ -6,6 +6,8 @@ import { RoutingModule } from './routing/routing.module';
 import { IntroduceComponent } from './introduce/introduce.component';
 import { VideoComponent } from './video/video.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -14,6 +16,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -22,6 +29,7 @@ import { IntroduceService } from './services/introduce.service';
 import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoComponent } from './logo/logo.component';
+import { HeroFormComponent } from './hero-form/hero-form.component';
 
 @NgModule({
   declarations: [
@@ -32,18 +40,26 @@ import { LogoComponent } from './logo/logo.component';
     VideoDetailComponent,
     FooterComponent,
     LogoComponent,
+    HeroFormComponent,
   ],
   imports: [
     BrowserModule,
     RoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
     MatListModule, MatGridListModule,
     MatProgressSpinnerModule,
-    MatCardModule
+    MatCardModule,
+    MatTooltipModule,
+    MatSelectModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatSlideToggleModule
   ],
   providers: [
     LinksService,

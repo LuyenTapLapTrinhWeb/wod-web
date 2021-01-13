@@ -30,6 +30,11 @@ import { VideoDetailComponent } from './video-detail/video-detail.component';
 import { FooterComponent } from './footer/footer.component';
 import { LogoComponent } from './logo/logo.component';
 import { HeroFormComponent } from './hero-form/hero-form.component';
+import { MatCarouselModule } from 'ng-mat-carousel';
+import { LinksComponent } from './links/links.component';
+import { GalleryComponent } from './gallery/gallery.component';
+import { GalleryService } from './services/gallery.service';
+import { VideoService } from './services/video.service';
 
 @NgModule({
   declarations: [
@@ -41,6 +46,8 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     FooterComponent,
     LogoComponent,
     HeroFormComponent,
+    LinksComponent,
+    GalleryComponent,
   ],
   imports: [
     BrowserModule,
@@ -59,11 +66,14 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
     MatSelectModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCarouselModule.forRoot(),
   ],
   providers: [
     LinksService,
-    IntroduceService
+    IntroduceService,
+    GalleryService,
+    VideoService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { Hero } from '../hero';
-
 @Component({
   selector: 'app-hero-form',
   templateUrl: './hero-form.component.html',
@@ -19,7 +18,6 @@ export class HeroFormComponent implements OnInit {
   alterEgo: FormControl;
   heroForm: FormGroup;
   submitted = false;
-
 
   constructor(private fb: FormBuilder) { this.createForm(); }
   // tslint:disable-next-line:typedef

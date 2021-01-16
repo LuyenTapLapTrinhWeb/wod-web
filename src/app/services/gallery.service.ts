@@ -17,4 +17,7 @@ export class GalleryService {
   getSlide(id: string): Observable<Slide[]> {
     return of(SLIDES.filter(slide => slide.id === id)).pipe(delay(2000));
   }
+  getSlideIds(): Observable<string[] | any> {
+    return of(SLIDES.map(slide => slide.id));
+  }
 }

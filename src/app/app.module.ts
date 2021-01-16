@@ -21,6 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
 
 
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -68,6 +69,7 @@ import { VideoService } from './services/video.service';
     MatFormFieldModule,
     MatSlideToggleModule,
     MatCarouselModule.forRoot(),
+    MatTableModule
   ],
   providers: [
     LinksService,

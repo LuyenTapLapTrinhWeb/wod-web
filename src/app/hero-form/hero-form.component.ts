@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { Hero } from '../hero';
+import { Hero } from '../shared/hero';
 @Component({
   selector: 'app-hero-form',
   templateUrl: './hero-form.component.html',

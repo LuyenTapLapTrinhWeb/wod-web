@@ -51,8 +51,8 @@ export class GalleryComponent implements OnInit {
       // this.slidesList = slidesList.map(slide => slide.image);
       this.slidesList = slidesList;
     });
-    this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
-      .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
+    // this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
+    //   .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
   }
   // tslint:disable-next-line:typedef
   setPrevNext(dishId: string): void {

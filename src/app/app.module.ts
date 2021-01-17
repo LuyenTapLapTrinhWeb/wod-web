@@ -36,7 +36,6 @@ import { LinksComponent } from './links/links.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryService } from './services/gallery.service';
 import { VideoService } from './services/video.service';
-
 @NgModule({
   declarations: [
     AppComponent,

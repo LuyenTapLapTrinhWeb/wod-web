@@ -6,6 +6,8 @@ import {
   MatCarouselSlideComponent,
   Orientation
 } from '@ngmodule/material-carousel';
+import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-gallery',
@@ -14,8 +16,11 @@ import {
 })
 export class GalleryComponent implements OnInit {
   // slides: Slide[];
-  // slide: Slide;
-
+  slide: Slide;
+  route: ActivatedRoute;
+  prev: string;
+  next: string;
+  galeryIds: string[];
   public slidesList: Slide[];
   public showContent = false;
 
@@ -45,17 +50,15 @@ export class GalleryComponent implements OnInit {
       this.slideOfLength = slidesList.length;
       // this.slidesList = slidesList.map(slide => slide.image);
       this.slidesList = slidesList;
-      // console.log(slidesList);
     });
-    // this.route.params.pipe(switchMap((params: Params) => this.slidesService.getSlide(params['id'])))
-    //   .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
-
+    this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
+      .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
   }
   // tslint:disable-next-line:typedef
   setPrevNext(dishId: string): void {
-    // const index = this.dishIds.indexOf(dishId);
-    // this.prev = this.dishIds[(this.dishIds.length + index - 1) % this.dishIds.length];
-    // this.next = this.dishIds[(this.dishIds.length + index + 1) % this.dishIds.length];
+    const index = this.galeryIds.indexOf(dishId);
+    this.prev = this.galeryIds[(this.galeryIds.length + index - 1) % this.galeryIds.length];
+    this.next = this.galeryIds[(this.galeryIds.length + index + 1) % this.galeryIds.length];
   }
   // tslint:disable-next-line:typedef
   public onChange(index: number) {

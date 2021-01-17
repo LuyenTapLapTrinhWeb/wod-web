@@ -1,34 +1,30 @@
-<form novalidate [formGroup]="heroForm" #heroForm="ngForm" (ngSubmit)="onSubmit()">
-    {{diagnostic }}
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Name</mat-label>
-            <input matInput type="text" id="name" [formControl]="name" name="name" placeholder="name" required>
-            <mat-hint>TODO: remove this: {{name}}</mat-hint>
-            <mat-error *ngIf="name.valid">
-
-            </mat-error>
+<div fxFlex>
+    <form class="full-width" novalidate [formGroup]="feedBackForm" (ngSubmit)="onSubmit()">
+        <h2 class="title">Send us your feedback</h2>
+        <mat-form-field class="half-width">
+            <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
         </mat-form-field>
-    </p>
-    <p>
-        <mat-form-field appearance="fill">
-            <mat-label>Alter ego</mat-label>
-            <input matInput type="text" id="alterEgo" [formControl]="alterEgo" name="alterEgo" placeholder="alterEgo"
-                required>
-            <mat-hint>TODO: remove this: {{alterEgo}}</mat-hint>
+        <mat-form-field class="half-width">
+            <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
         </mat-form-field>
-    </p>
-    <p>
+        <mat-form-field class="half-width">
+            <input matInput formControlName="telnum" placeholder="Tel. Num" type="text" required>
+        </mat-form-field>
+        <mat-form-field class="half-width">
+            <input matInput formControlName="email" placeholder="Email" type="text" required>
+        </mat-form-field>
+        <mat-slide-toggle formControlName="argee">May we contact you?</mat-slide-toggle>
         <mat-form-field appearance="fill">
-            <mat-label>Hero Power</mat-label>
-            <mat-select id="power" required>
-                <!-- <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option> -->
-                <mat-option *ngFor="let pow of powers" [value]="pow">{{pow}}</mat-option>
+            <mat-label>How?</mat-label>
+            <mat-select placeholder="How?" formControlName="contacttype">
+                <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+                    {{ ctype }}
+                </mat-option>
             </mat-select>
         </mat-form-field>
-    </p>
-    <button type="submit" mat-button [disabled]="!heroForm.form.valid">
-        Save
-    </button>
-    <button mat-button type="button" class="btn btn-default" (su)="newHero()">New Hero</button>
-</form>
+        <mat-form-field>
+            <textarea matInput formControlName="message" placeholder="Your Feedback" rows="8"></textarea>
+        </mat-form-field>
+        <button mat-button class="background-primary text-floral-white" type="submit">Submit</button>
+    </form>
+</div>

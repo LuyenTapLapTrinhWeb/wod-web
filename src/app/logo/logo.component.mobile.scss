@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 600px) and (orientation: portrait) {
     $lines-color: fade-out(#fff, 0.3);
     $font-family-SnowburstOne: "Snowburst One";
     body {
@@ -7,12 +7,12 @@
 
     .frame {
         position: absolute;
-        top: 30%;
-        left: 50%;
-        width: 400px;
-        height: 400px;
-        margin-top: -200px;
-        margin-left: -200px;
+        top: 50%;
+        left: 52%;
+        width: 95%;
+        height: 40%;
+        margin-top: -50%;
+        margin-left: -50%;
         border-radius: 2px;
         box-shadow: 0.5rem 0.5rem 1rem rgba(0, 0, 0, 0.6);
         overflow: hidden;
@@ -63,9 +63,9 @@
     .bracket {
         position: absolute;
         z-index: 10;
-        height: 130px;
+        height: 70%;
         width: 1px;
-        top: 137px;
+        top: 15%;
         background: $lines-color;
         animation: bracket 0.4s ease-out 1.7s;
         animation-fill-mode: both;
@@ -86,7 +86,7 @@
     }
 
     .bracket.left {
-        left: 50px;
+        left: 30px;
     }
 
     .bracket.left:before {
@@ -111,7 +111,7 @@
     }
 
     .bracket.right {
-        right: 50px;
+        right: 30px;
     }
 
     .bracket.right:before {
@@ -171,7 +171,7 @@
     .small {
         position: absolute;
         z-index: 10;
-        width: 400px;
+        width: 95%;
         text-align: center;
         left: 0;
         font-weight: 300;
@@ -184,19 +184,19 @@
 
     .first-letter {
         font-family: yesteryear, cursive;
-        font-size: 3.5rem;
+        font-size: 4rem;
         background-image: linear-gradient(33deg, #9a0fe0 25%, #ff049f);
         -webkit-text-fill-color: transparent;
         background-clip: text;
     }
 
     .small.top {
-        top: 8rem;
+        top: 5rem;
         animation: small-top 0.5s ease-out 2.2s;
         animation-fill-mode: both;
     }
     .small.bottom {
-        bottom: 8rem;
+        bottom: 4rem;
         animation: small-bottom 0.5s ease-out 2.2s;
         animation-fill-mode: both;
     }
@@ -292,5 +292,20 @@
             transform: translateX(0);
             opacity: 1;
         }
+    }
+}
+@media only screen and (max-width: 900px) and (orientation: landscape) {
+    .frame {
+        top: 80%;
+        left: 27%;
+        width: 95%;
+        height: 55%;
+    }
+    .bracket {
+        height: 80%;
+        top: 10%;
+    }
+    .small {
+        width: 100%;
     }
 }

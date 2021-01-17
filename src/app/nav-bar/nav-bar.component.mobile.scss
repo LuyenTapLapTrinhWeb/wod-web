@@ -1,6 +1,13 @@
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
-    .mat-toolbar.mat-primary{
+    .mat-toolbar.mat-primary {
         justify-content: space-evenly;
+        flex-direction: column;
+        height: auto;
+        align-items: stretch;
+    }
+    .mat-button {
+        text-align: left;
+        width: 100%;
     }
 }

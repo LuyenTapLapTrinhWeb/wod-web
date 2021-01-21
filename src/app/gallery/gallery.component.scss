@@ -24,17 +24,27 @@ table {
     flex-direction: row;
     align-items: flex-end;
     justify-content: center;
-    .card-image {
-        width: 150px;
-    }
     .card-style {
-        margin: 0;
+        // margin: 0;
         padding: 0;
-        height: 400px;
-        width: 250px;
+        // height: 400px;
+        // width: 250px;
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        justify-content: stretch;
+    }
+    .card-image {
+        width: 100%;
+    }
+    .card-footer {
+        margin-top: 30px;
+    }
+    .card-header {
+        display: flex;
+        flex-direction: column;
     }
 }
-
 .card-image {
     width: 100px;
     object-fit: cover;
@@ -45,6 +55,10 @@ table {
     position: relative;
     text-align: center;
     color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
 }
 
 .bottom-left {

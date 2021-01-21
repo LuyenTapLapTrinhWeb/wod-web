@@ -4,35 +4,45 @@
         [proportion]="proportion" [useKeyboard]="useKeyboard" [useMouseWheel]="useMouseWheel"
         [orientation]="orientation" [slides]="slideOfLength" [maintainAspectRatio]="maintainAspectRatio"
         [slideHeight]="slideHeight" (change)="onChange($event)">
-        <mat-carousel-slide #matCarouselSlide *ngFor="let s of slidesList; let i = index" [image]="s.image"
+        <!-- <mat-carousel-slide #matCarouselSlide *ngFor="let hero of heroes; let i = index" [image]="hero.image" -->
+        <mat-carousel-slide #matCarouselSlide *ngFor="let hero of slidesList; let i = index" [image]="hero.image"
             [overlayColor]="overlayColor" [hideOverlay]="hideOverlay">
             <ng-container *ngIf="showContent">
-                <div class="content">
-                    <h1>{{ i }}</h1>
-                    <p>disabled: {{ matCarouselSlide.disabled }}</p>
-                    <button mat-flat-button (click)="
-                matCarouselSlide.disabled = !matCarouselSlide.disabled
-              ">
-                        Click me!
-                    </button>
+                <!-- <ng-container *ngIf="false"> -->
+                <!-- <div class="content"> -->
+                <div class="content-row">
+                    <mat-card class="card-style">
+                        <mat-card-header class="card-header">
+                            {{hero.name| uppercase }}
+                        </mat-card-header>
+                        <mat-card-content class="container">
+                            <img class="card-image" mat-card-img [src]="hero.image" alt="{{hero.name}}">
+                            <mat-card-title class="top-left">No.{{hero.id}}</mat-card-title>
+                            <mat-card-description class="centered">
+                                {{hero.power| uppercase}} - {{hero.alterEgo| uppercase}}
+                            </mat-card-description>
+                        </mat-card-content>
+                        <!-- <mat-card-footer>
+                            {{hero.power| uppercase}} - {{hero.alterEgo| uppercase}}
+                        </mat-card-footer> -->
+                    </mat-card>
                 </div>
             </ng-container>
         </mat-carousel-slide>
     </mat-carousel>
     <mat-list *ngIf="heroes" class="content-row">
-        <mat-card *ngFor='let hero of heroes' class="card-style">
-            <mat-card-header>
-                <mat-card-title>{{hero.name| uppercase }}</mat-card-title>
+        <mat-card *ngFor='let hero of slidesList' class="card-style">
+            <!-- <mat-card *ngFor='let hero of heroes' class="card-style"> -->
+            <mat-card-header class="card-header">
+                {{hero.name| uppercase }}
             </mat-card-header>
             <mat-card-content class="container">
                 <img class="card-image" mat-card-img [src]="hero.image" alt="{{hero.name}}">
-                <mat-card-description class="centered">
+                <mat-card-title class="top-left">No.{{hero.id}}</mat-card-title>
+                <!-- <mat-card-description class="centered">
                     {{hero.power| uppercase}} - {{hero.alterEgo| uppercase}}
-                </mat-card-description>
+                </mat-card-description> -->
             </mat-card-content>
-            <mat-card-footer>
-                This is hero id = {{hero.id}}
-            </mat-card-footer>
         </mat-card>
     </mat-list>
 </div>

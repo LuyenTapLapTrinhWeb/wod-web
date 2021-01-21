@@ -23,6 +23,8 @@ export class GalleryComponent implements OnInit {
   prev: string;
   next: string;
   galeryIds: string[];
+  public heroes: Hero[];
+
   public slidesList: Slide[];
   public showContent = true;
 
@@ -37,17 +39,16 @@ export class GalleryComponent implements OnInit {
   public maxWidth = 'auto';
   public maintainAspectRatio = true;
   public proportion = 25;
-  public slideHeight = '200px';
+  public slideHeight = '600px';
   public slideOfLength: number;
   // public overlayColor = '#00000040';
-  public overlayColor = '#FAFAFA';
+  public overlayColor = '#CCC';
   public hideOverlay = false;
   public useKeyboard = true;
   public useMouseWheel = false;
   public orientation: Orientation = 'ltr';
   public log: string[] = [];
 
-  heroes: Hero[];
 
 
   constructor(private slidesService: GalleryService, private heroService: HeroService) { }
@@ -55,6 +56,7 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     this.slidesService.getSlides().subscribe(slidesList => {
       this.slideOfLength = slidesList.length;
+      // this.slidesList = slidesList.map(slide => slide.image);
       this.slidesList = slidesList;
     });
     // this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))

@@ -19,8 +19,8 @@
             </ng-container>
         </mat-carousel-slide>
     </mat-carousel>
-    <mat-list *ngIf="heroes">
-        <mat-card *ngFor='let hero of heroes'>
+    <mat-list *ngIf="heroes" class="content-row">
+        <mat-card *ngFor='let hero of heroes' class="card-style">
             <mat-card-header>
                 <mat-card-title>{{hero.name| uppercase }}</mat-card-title>
             </mat-card-header>

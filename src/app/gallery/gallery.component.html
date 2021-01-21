@@ -7,8 +7,7 @@
         <mat-carousel-slide #matCarouselSlide *ngFor="let s of slidesList; let i = index" [image]="s.image"
             [overlayColor]="overlayColor" [hideOverlay]="hideOverlay">
             <ng-container *ngIf="showContent">
-                <div
-                    style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center">
+                <div class="content">
                     <h1>{{ i }}</h1>
                     <p>disabled: {{ matCarouselSlide.disabled }}</p>
                     <button mat-flat-button (click)="
@@ -20,6 +19,22 @@
             </ng-container>
         </mat-carousel-slide>
     </mat-carousel>
+    <mat-list *ngIf="heroes">
+        <mat-card *ngFor='let hero of heroes'>
+            <mat-card-header>
+                <mat-card-title>{{hero.name| uppercase }}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content class="container">
+                <img class="card-image" mat-card-img [src]="hero.image" alt="{{hero.name}}">
+                <mat-card-description class="centered">
+                    {{hero.power| uppercase}} - {{hero.alterEgo| uppercase}}
+                </mat-card-description>
+            </mat-card-content>
+            <mat-card-footer>
+                This is hero id = {{hero.id}}
+            </mat-card-footer>
+        </mat-card>
+    </mat-list>
 </div>
 <div *ngIf='!slidesList'>
     <mat-spinner></mat-spinner>

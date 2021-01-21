@@ -16,4 +16,10 @@ export class HeroService {
   getHero(id: number): Observable<Hero> {
     return of(HEROES.filter(hero => hero.id === id)[0]).pipe(delay(2000));
   }
+  getHeroImages(): Observable<string[]> {
+    return of(HEROES.map(hero => hero.image)).pipe(delay(2000));
+  }
+  getHeroIds(): Observable<number[]> {
+    return of(HEROES.map(hero => hero.id)).pipe(delay(2000));
+  }
 }

@@ -47,7 +47,7 @@ export class GalleryComponent implements OnInit {
   public orientation: Orientation = 'ltr';
   public log: string[] = [];
 
-  heros: Hero[];
+  heroes: Hero[];
 
 
   constructor(private slidesService: GalleryService, private heroService: HeroService) { }
@@ -55,14 +55,14 @@ export class GalleryComponent implements OnInit {
   ngOnInit(): void {
     this.slidesService.getSlides().subscribe(slidesList => {
       this.slideOfLength = slidesList.length;
-      // this.slidesList = slidesList.map(slide => slide.image);
       this.slidesList = slidesList;
     });
     // this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
     //   .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
 
-    this.heroService.getHeroes().subscribe(heros => {
-      this.heros = heros;
+    this.heroService.getHeroes().subscribe(heroes => {
+      this.slideOfLength = heroes.length;
+      this.heroes = heroes;
     });
   }
   // tslint:disable-next-line:typedef

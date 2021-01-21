@@ -6,7 +6,6 @@ import {
   MatCarouselSlideComponent,
   Orientation
 } from '@ngmodule/material-carousel';
-import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { HeroService } from '../services/hero.service';
 import { Hero } from '../shared/hero';
@@ -14,7 +13,10 @@ import { Hero } from '../shared/hero';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
-  styleUrls: ['./gallery.component.scss']
+  styleUrls: [
+    './responsive/gallery.component.desktop.scss',
+    './responsive/gallery.component.mobile.scss'
+  ]
 })
 export class GalleryComponent implements OnInit {
   // slides: Slide[];

@@ -1,11 +1,11 @@
-<div class="demo-carousel" [style.height]="parentHeight" *ngIf="slidesList">
+<div class="demo-carousel" [style.height]="parentHeight" *ngIf="heroes">
     <mat-carousel #matCarousel [timings]="timings" [autoplay]="autoplay" [interval]="interval" [loop]="loop"
         [hideArrows]="hideArrows" [hideIndicators]="hideIndicators" [color]="color" [maxWidth]="maxWidth"
         [proportion]="proportion" [useKeyboard]="useKeyboard" [useMouseWheel]="useMouseWheel"
         [orientation]="orientation" [slides]="slideOfLength" [maintainAspectRatio]="maintainAspectRatio"
         [slideHeight]="slideHeight" (change)="onChange($event)">
         <!-- <mat-carousel-slide #matCarouselSlide *ngFor="let hero of heroes; let i = index" [image]="hero.image" -->
-        <mat-carousel-slide #matCarouselSlide *ngFor="let hero of slidesList; let i = index" [image]="hero.image"
+        <mat-carousel-slide #matCarouselSlide *ngFor="let hero of heroes; let i = index" [image]="hero.image"
             [overlayColor]="overlayColor" [hideOverlay]="hideOverlay">
             <ng-container *ngIf="showContent">
                 <!-- <ng-container *ngIf="false"> -->
@@ -31,7 +31,7 @@
         </mat-carousel-slide>
     </mat-carousel>
     <mat-list *ngIf="heroes" class="content-row">
-        <mat-card *ngFor='let hero of slidesList' class="card-style">
+        <mat-card *ngFor='let hero of heroes' class="card-style">
             <!-- <mat-card *ngFor='let hero of heroes' class="card-style"> -->
             <mat-card-header class="card-header">
                 {{hero.name| uppercase }}
@@ -46,7 +46,7 @@
         </mat-card>
     </mat-list>
 </div>
-<div *ngIf='!slidesList'>
+<div *ngIf='!heroes'>
     <mat-spinner></mat-spinner>
     <h1>phòng tranh loading...</h1>
 </div>

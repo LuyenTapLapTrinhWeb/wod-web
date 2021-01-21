@@ -8,6 +8,8 @@ import {
 } from '@ngmodule/material-carousel';
 import { switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
+import { HeroService } from '../services/hero.service';
+import { Hero } from '../shared/hero';
 
 @Component({
   selector: 'app-gallery',
@@ -22,7 +24,7 @@ export class GalleryComponent implements OnInit {
   next: string;
   galeryIds: string[];
   public slidesList: Slide[];
-  public showContent = false;
+  public showContent = true;
 
   public parentHeight = 'auto';
   public timings = '250ms ease-in';
@@ -37,13 +39,18 @@ export class GalleryComponent implements OnInit {
   public proportion = 25;
   public slideHeight = '200px';
   public slideOfLength: number;
-  public overlayColor = '#00000040';
+  // public overlayColor = '#00000040';
+  public overlayColor = '#FAFAFA';
   public hideOverlay = false;
   public useKeyboard = true;
   public useMouseWheel = false;
   public orientation: Orientation = 'ltr';
   public log: string[] = [];
-  constructor(private slidesService: GalleryService) { }
+
+  heros: Hero[];
+
+
+  constructor(private slidesService: GalleryService, private heroService: HeroService) { }
 
   ngOnInit(): void {
     this.slidesService.getSlides().subscribe(slidesList => {
@@ -53,6 +60,10 @@ export class GalleryComponent implements OnInit {
     });
     // this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
     //   .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
+
+    this.heroService.getHeroes().subscribe(heros => {
+      this.heros = heros;
+    });
   }
   // tslint:disable-next-line:typedef
   setPrevNext(dishId: string): void {

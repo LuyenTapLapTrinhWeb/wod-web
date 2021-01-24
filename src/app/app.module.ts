@@ -40,6 +40,9 @@ import { HeroComponent } from './hero/hero.component';
 import { GalleryDetailComponent } from './gallery-detail/gallery-detail.component';
 import { HeroesComponent } from './heroes/heroes.component';
 import { CarouselComponent } from 'ngx-owl-carousel-o';
+import { Page404Component } from './page404/page404.component';
+import { GallerydetailguardService } from './gallery-detail/gallerydetailguard.service';
+import { GalleryresolveService } from './gallery-detail/galleryresolve.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,6 +58,7 @@ import { CarouselComponent } from 'ngx-owl-carousel-o';
     HeroComponent,
     GalleryDetailComponent,
     HeroesComponent,
+    Page404Component,
   ],
   imports: [
     BrowserModule,
@@ -82,6 +86,8 @@ import { CarouselComponent } from 'ngx-owl-carousel-o';
     IntroduceService,
     GalleryService,
     VideoService,
+    GallerydetailguardService,
+    GalleryresolveService
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,63 @@
+@import "../../../assets/variables";
+@mixin carousel-styling {
+    ::ng-deep {
+        .carousel {
+            outline: none;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 500px !important;
+        }
+        .carousel > button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+        .carousel > button :first-of-type {
+            left: 30px;
+        }
+        .carousel > button :last-of-type {
+            right: 30px;
+        }
+        .carousel-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        .carousel-list,
+        .carousel-slide {
+            display: flex;
+            position: relative;
+            width: 100%;
+            height: 500px !important;
+        }
+        .carousel-slide[_ngcontent-non-c130],
+        .carousel-slide-overlay[_ngcontent-non-c130] {
+            height: 500px !important;
+        }
+        .carousel-slide :hover {
+            cursor: -webkit-grab;
+            cursor: grab;
+        }
+        .carousel-indicators {
+            bottom: 15px;
+            display: flex;
+            left: 50%;
+            outline: none;
+            position: absolute;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+        .carousel-indicators > button {
+            height: 10px;
+            margin: 7.5px;
+            width: 10px;
+        }
+    }
+}
+@include mobile {
+    .demo-carousel {
+        @include carousel-styling();
+    }
+}

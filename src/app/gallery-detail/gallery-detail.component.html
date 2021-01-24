@@ -1,0 +1,29 @@
+<div class="content-row">
+    <mat-card class="card-style" *ngIf='gallery'>
+        <mat-card-header class="card-header">
+            {{gallery.name| uppercase }}
+        </mat-card-header>
+        <mat-card-content class="container">
+            <img class="card-image" mat-card-img [src]="gallery.image" alt="{{gallery.name}}">
+            <mat-card-title class="top-left">
+                No.{{gallery.id}}
+            </mat-card-title>
+            <mat-card-description class="centered">
+                {{gallery.power| uppercase}} - {{gallery.alterEgo| uppercase}}
+            </mat-card-description>
+        </mat-card-content>
+        <mat-card-footer>
+            <mat-card-actions>
+                <button mat-button [routerLink]="['/gallery', prev]"><span
+                        class="fa fa-chevron-left fa-lg"> < </span></button>
+                <span class="flex-spacer"></span>
+                <button mat-button [routerLink]="['/gallery', next]"><span
+                        class="fa fa-chevron-right fa-lg"> > </span></button>
+            </mat-card-actions>
+        </mat-card-footer>
+    </mat-card>
+</div>
+<div *ngIf='!gallery'>
+    <mat-spinner></mat-spinner>
+    <h1>phòng tranh detail loading...</h1>
+</div>

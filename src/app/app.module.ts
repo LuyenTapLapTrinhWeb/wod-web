@@ -37,6 +37,9 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryService } from './services/gallery.service';
 import { VideoService } from './services/video.service';
 import { HeroComponent } from './hero/hero.component';
+import { GalleryDetailComponent } from './gallery-detail/gallery-detail.component';
+import { HeroesComponent } from './heroes/heroes.component';
+import { CarouselComponent } from 'ngx-owl-carousel-o';
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +53,8 @@ import { HeroComponent } from './hero/hero.component';
     LinksComponent,
     GalleryComponent,
     HeroComponent,
+    GalleryDetailComponent,
+    HeroesComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,7 +81,7 @@ import { HeroComponent } from './hero/hero.component';
     LinksService,
     IntroduceService,
     GalleryService,
-    VideoService
+    VideoService,
   ],
   bootstrap: [AppComponent]
 })

@@ -1,58 +1,35 @@
-<div class="demo-carousel" [style.height]="parentHeight" *ngIf="slidesList">
-    <mat-carousel #matCarousel [timings]="timings" [autoplay]="autoplay" [interval]="interval" [loop]="loop"
-        [hideArrows]="hideArrows" [hideIndicators]="hideIndicators" [color]="color" [maxWidth]="maxWidth"
-        [proportion]="proportion" [useKeyboard]="useKeyboard" [useMouseWheel]="useMouseWheel"
-        [orientation]="orientation" [slides]="slideOfLength" [maintainAspectRatio]="maintainAspectRatio"
-        [slideHeight]="slideHeight" (change)="onChange($event)">
-        <!-- <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slidesList; let i = index" [image]="slide.image" -->
-        <mat-carousel-slide #matCarouselSlide *ngFor="let slide of slidesList; let i = index" [image]="slide.image"
-            [overlayColor]="overlayColor" [hideOverlay]="hideOverlay">
-            <ng-container *ngIf="showContent">
-                <!-- <ng-container *ngIf="false"> -->
-                <!-- <div class="content"> -->
+<div class="demo-carousel" [style.height]="slideCF.parentHeight" *ngIf="gallerysList">
+    <mat-carousel #matCarousel [timings]="slideCF.timings" [autoplay]="slideCF.autoplay" [interval]="slideCF.interval"
+        [loop]="slideCF.loop" [hideArrows]="slideCF.hideArrows" [hideIndicators]="slideCF.hideIndicators"
+        [color]="slideCF.color" [maxWidth]="slideCF.maxWidth" [proportion]="slideCF.proportion"
+        [useKeyboard]="slideCF.useKeyboard" [useMouseWheel]="slideCF.useMouseWheel" [orientation]="slideCF.orientation"
+        [slides]="slideCF.slideOfLength" [maintainAspectRatio]="slideCF.maintainAspectRatio"
+        [slideHeight]="slideCF.slideHeight" (change)="onChange($event)">
+        <mat-carousel-slide #matCarouselSlide *ngFor="let gallery of gallerysList; let i = index"
+            [overlayColor]="slideCF.overlayColor" [hideOverlay]="slideCF.hideOverlay" (change)="onChangeSlide(gallery)">
+            <ng-container *ngIf="slideCF.showContent">
                 <div class="content-row">
-                    <mat-card class="card-style">
+                    <mat-card class="card-style" *ngIf="gallery">
                         <mat-card-header class="card-header">
-                            {{slide.name| uppercase }}
+                            {{gallery.name| uppercase }}
                         </mat-card-header>
                         <mat-card-content class="container">
-                            <img class="card-image" mat-card-img [src]="slide.image" alt="{{slide.name}}">
-                            <mat-card-title class="top-left">No.{{slide.id}}</mat-card-title>
+                            <img class="card-image" mat-card-img [src]="gallery.image" alt="{{gallery.name}}">
+                            <mat-card-title class="top-left" [routerLink]="[ '/phongtranh', gallery.id]">
+                                No.{{gallery.id}}
+                            </mat-card-title>
                             <mat-card-description class="centered">
-                                {{slide.power| uppercase}} - {{slide.alterEgo| uppercase}}
+                                {{gallery.power| uppercase}} - {{gallery.alterEgo| uppercase}}
                             </mat-card-description>
                         </mat-card-content>
-                        <!-- <mat-card-footer>
-                            {{slide.power| uppercase}} - {{slide.alterEgo| uppercase}}
-                        </mat-card-footer> -->
                     </mat-card>
                 </div>
             </ng-container>
         </mat-carousel-slide>
     </mat-carousel>
-    <mat-list *ngIf="slidesList" class="content-row">
-        <mat-card *ngFor='let slide of slidesList' class="card-style">
-            <!-- <mat-card *ngFor='let slide of slidesList' class="card-style"> -->
-            <mat-card-header class="card-header">
-                {{slide.name| uppercase }}
-            </mat-card-header>
-            <mat-card-content class="container">
-                <a [routerLink]="[ '/phongtranh', slide.id ]" routerLinkActive="active">
-                    <img class="card-image" mat-card-img [src]="slide.image" alt="{{slide.name}}">
-                </a>
-                <mat-card-title class="top-left">
-                    <a [routerLink]="['/phongtranh', slide.id]">
-                        <span class="badge">{{ slide.id }}</span>{{ slide.name }}
-                    </a>
-                </mat-card-title>
-                <!-- <mat-card-footer class="centered">
-                    {{hero.power| uppercase}} - {{hero.alterEgo| uppercase}}
-                </mat-card-footer> -->
-            </mat-card-content>
-        </mat-card>
-    </mat-list>
+
 </div>
-<div *ngIf='!slidesList'>
+<div *ngIf='!gallerysList'>
     <mat-spinner></mat-spinner>
     <h1>phòng tranh loading...</h1>
 </div>

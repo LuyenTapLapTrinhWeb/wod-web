@@ -1,7 +1,11 @@
-import { Slide } from './slide';
+import { Gallery } from './gallery';
 
-export const SLIDES: Slide[] = [
-    { id: '10', name: 'bg-gioithieu.jp', image: 'assets/images/bg-gioithieu.jpg' },
+export const GALLERIES: Gallery[] = [
+    {
+        id: '10',
+        name: 'bg-gioithieu.jp',
+        image: 'assets/images/bg-gioithieu.jpg',
+    },
     { id: '11', name: 'bg-video.jp', image: 'assets/images/bg-video.jpg' },
     { id: '12', name: 'cattle1.jpg', image: 'assets/images/cattle1.jpg' },
     { id: '13', name: 'winter', power: 'inteligent', alterEgo: 'nammo adi daphat', image: 'assets/images/1.jpg' },

@@ -1,88 +1,57 @@
 import { Component, OnInit } from '@angular/core';
 import { GalleryService } from '../services/gallery.service';
-import { Slide } from '../shared/slide';
-import { ThemePalette } from '@angular/material/core';
-import {
-  MatCarouselSlideComponent,
-  Orientation
-} from '@ngmodule/material-carousel';
-import { ActivatedRoute, Router } from '@angular/router';
-import { HeroService } from '../services/hero.service';
-import { Hero } from '../shared/hero';
-import { switchMap } from 'rxjs/operators';
-
+import { SlideConfigService } from '../services/slideConfig.service';
+import { Gallery } from '../shared/gallery';
+import { GALLERIES } from '../shared/galleryies';
+import { SlideConfig } from '../shared/slideconfig';
 @Component({
   selector: 'app-gallery',
   templateUrl: './gallery.component.html',
   styleUrls: [
     './responsive/gallery.component.desktop.scss',
-    './responsive/gallery.component.mobile.scss'
+    './responsive/gallery.component.mobile.scss',
+    './responsive/gallery.component.carousel.scss'
   ]
 })
 export class GalleryComponent implements OnInit {
-  // slides: Slide[];
-  slide: Slide;
 
-  prev: string;
-  next: string;
-  galeryIds: string[];
-  public heroes: Hero[];
-
-  public slidesList: Slide[];
-  public showContent = true;
-
-  public parentHeight = 'auto';
-  public timings = '250ms ease-in';
-  public autoplay = true;
-  public interval = 5000;
-  public loop = true;
-  public hideArrows = false;
-  public hideIndicators = false;
-  public color: ThemePalette = 'accent';
-  public maxWidth = 'auto';
-  public maintainAspectRatio = true;
-  public proportion = 25;
-  public slideHeight = '600px';
-  public slideOfLength: number;
-  // public overlayColor = '#00000040';
-  public overlayColor = '#CCC';
-  public hideOverlay = false;
-  public useKeyboard = true;
-  public useMouseWheel = false;
-  public orientation: Orientation = 'ltr';
-  public log: string[] = [];
-
-
+  gallery: Gallery;
+  gallerysList: Gallery[];
+  selectedgallery: Gallery = GALLERIES[0];
+  slideCF: SlideConfig;
 
   constructor(
-    private slidesService: GalleryService,
-    private heroService: HeroService,
-    private route: ActivatedRoute,
-    private router: Router
+    private galleryService: GalleryService,
+    private slideConfigService: SlideConfigService,
   ) { }
 
   ngOnInit(): void {
-    this.slidesService.getSlides().subscribe(slidesList => {
-      this.slideOfLength = slidesList.length;
-      // this.slidesList = slidesList.map(slide => slide.image);
-      this.slidesList = slidesList;
-    });
-    this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
-      .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
+    this.slideConfigService.getSlideConfig('1').subscribe(
+      slideCF => {
+        this.slideCF = slideCF;
+        this.galleryService.getGalleries().subscribe(
+          gallerysList => {
+            this.slideCF.slideOfLength = gallerysList.length;
+            this.slideCF.showContent = true;
+            this.slideCF.slideHeight = '500px !important';
+            this.slideCF.parentHeight = '500px !important';
+            this.gallerysList = gallerysList;
+          }
+          , error => console.log('GALLERYSLIST HTTP ERROR', error)
+          , () => console.log('GALLERYSLIST HTTP SUCCESS', this.gallerysList));
+      }
+      , error => console.log('SLIDECF HTTP ERROR', error)
+      , () => console.log('SLIDECF HTTP SUCCESS', this.slideCF));
+  }
 
-    this.heroService.getHeroes().subscribe(heroes => {
-      this.slideOfLength = heroes.length;
-      this.heroes = heroes;
-    });
+  onSelected(gallery: Gallery): void {
+    this.gallery = gallery;
   }
-  // tslint:disable-next-line:typedef
-  setPrevNext(galeryId: string): void {
-    const index = this.galeryIds.indexOf(galeryId);
-    this.prev = this.galeryIds[(this.galeryIds.length + index - 1) % this.galeryIds.length];
-    this.next = this.galeryIds[(this.galeryIds.length + index + 1) % this.galeryIds.length];
+
+  onChange(index: number): void {
+    this.slideCF.log.push(`MatCarousel#change emitted with index ${index}`);
   }
-  // tslint:disable-next-line:typedef
-  public onChange(index: number) {
-    this.log.push(`MatCarousel#change emitted with index ${index}`);
+  onChangeSlide(gallery: Gallery): void {
+    this.slideCF.log.push(`MatCarousel#change emitted with index ${gallery.name}`);
   }
 }

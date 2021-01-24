@@ -27,9 +27,6 @@ export class HeroFormComponent implements OnInit {
   }
   // tslint:disable-next-line:typedef
   onSubmit(): void {
-    // this.feedback = this.feedbackForm.value;
-    // console.log(this.feedback);
-    // this.feedbackForm.reset();
     this.feedBack = this.feedBackForm.value;
     console.log(this.feedBack);
     this.feedBackForm.reset();

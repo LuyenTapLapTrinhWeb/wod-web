@@ -36,6 +36,7 @@ import { LinksComponent } from './links/links.component';
 import { GalleryComponent } from './gallery/gallery.component';
 import { GalleryService } from './services/gallery.service';
 import { VideoService } from './services/video.service';
+import { HeroComponent } from './hero/hero.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { VideoService } from './services/video.service';
     HeroFormComponent,
     LinksComponent,
     GalleryComponent,
+    HeroComponent,
   ],
   imports: [
     BrowserModule,

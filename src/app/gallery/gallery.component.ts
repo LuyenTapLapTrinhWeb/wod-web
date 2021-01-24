@@ -6,9 +6,10 @@ import {
   MatCarouselSlideComponent,
   Orientation
 } from '@ngmodule/material-carousel';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HeroService } from '../services/hero.service';
 import { Hero } from '../shared/hero';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-gallery',
@@ -21,7 +22,7 @@ import { Hero } from '../shared/hero';
 export class GalleryComponent implements OnInit {
   // slides: Slide[];
   slide: Slide;
-  route: ActivatedRoute;
+
   prev: string;
   next: string;
   galeryIds: string[];
@@ -53,7 +54,12 @@ export class GalleryComponent implements OnInit {
 
 
 
-  constructor(private slidesService: GalleryService, private heroService: HeroService) { }
+  constructor(
+    private slidesService: GalleryService,
+    private heroService: HeroService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.slidesService.getSlides().subscribe(slidesList => {
@@ -61,8 +67,8 @@ export class GalleryComponent implements OnInit {
       // this.slidesList = slidesList.map(slide => slide.image);
       this.slidesList = slidesList;
     });
-    // this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
-    //   .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
+    this.route.params.pipe(switchMap((params) => this.slidesService.getSlide(params['id'])))
+      .subscribe(slide => { this.slide = slide; this.setPrevNext(slide.id); });
 
     this.heroService.getHeroes().subscribe(heroes => {
       this.slideOfLength = heroes.length;
@@ -70,8 +76,8 @@ export class GalleryComponent implements OnInit {
     });
   }
   // tslint:disable-next-line:typedef
-  setPrevNext(dishId: string): void {
-    const index = this.galeryIds.indexOf(dishId);
+  setPrevNext(galeryId: string): void {
+    const index = this.galeryIds.indexOf(galeryId);
     this.prev = this.galeryIds[(this.galeryIds.length + index - 1) % this.galeryIds.length];
     this.next = this.galeryIds[(this.galeryIds.length + index + 1) % this.galeryIds.length];
   }

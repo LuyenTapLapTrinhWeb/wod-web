@@ -102,3 +102,8 @@
     @include card-styling();
     @include image-styling();
 }
+@include desktop {
+    @include slide-styling();
+    @include card-styling();
+    @include image-styling();
+}

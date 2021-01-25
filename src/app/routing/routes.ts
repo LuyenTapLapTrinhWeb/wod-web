@@ -20,6 +20,6 @@ export const ROUTES: Routes = [
   { path: 'phongtranh/:id', component: GalleryDetailComponent, canActivate: [GallerydetailguardService] },
   { path: 'notfound', component: Page404Component },
   { path: '**', redirectTo: 'notfound' },
-  { path: '', pathMatch: 'full', redirectTo: 'gioithieu' }
+  { path: '', pathMatch: 'full', redirectTo: '' }
   // tslint:disable-next-line:eofline
 ];

@@ -19,6 +19,7 @@ export const ROUTES: Routes = [
   { path: 'phongtranh', component: GalleryComponent, resolve: [GalleryresolveService] },
   { path: 'phongtranh/:id', component: GalleryDetailComponent, canActivate: [GallerydetailguardService] },
   { path: 'notfound', component: Page404Component },
+  { path: '**', redirectTo: 'notfound' },
   { path: '', pathMatch: 'full', redirectTo: 'gioithieu' }
   // tslint:disable-next-line:eofline
 ];

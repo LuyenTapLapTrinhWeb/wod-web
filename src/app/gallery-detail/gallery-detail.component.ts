@@ -22,10 +22,14 @@ export class GalleryDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.gallerysService.getGalleryIds().subscribe(galeryIds => this.galeryIds = galeryIds);
-    this.route.params.pipe(switchMap((params) => this.gallerysService.getGallery(params['id'])))
-      .subscribe(gallery => {
-        this.gallery = gallery; this.setPrevNext(gallery.id);
-      });
+    this.route.params.pipe(switchMap((params) => this.gallerysService.getGallery(params.id))).subscribe(
+      gallery => {
+        this.gallery = gallery;
+        console.log(this.gallery);
+        this.setPrevNext(gallery.id);
+      }
+      , error => console.log('GALLERYSLIST HTTP ERROR', error)
+      , () => console.log('GALLERYSLIST HTTP SUCCESS', this.gallery));
   }
 
   // tslint:disable-next-line:typedef

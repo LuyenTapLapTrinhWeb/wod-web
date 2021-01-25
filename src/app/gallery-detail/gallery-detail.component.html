@@ -1,5 +1,5 @@
-<div class="content-row">
-    <mat-card class="card-style" *ngIf='gallery'>
+<div class="content-row" *ngIf='gallery'>
+    <mat-card class="card-style">
         <mat-card-header class="card-header">
             {{gallery.name| uppercase }}
         </mat-card-header>
@@ -14,11 +14,15 @@
         </mat-card-content>
         <mat-card-footer>
             <mat-card-actions>
-                <button mat-button [routerLink]="['/gallery', prev]"><span
-                        class="fa fa-chevron-left fa-lg"> < </span></button>
+                <button mat-button [routerLink]="['/phongtranh', prev]"><span class="fa fa-chevron-left fa-lg">
+                        < </span></button>
                 <span class="flex-spacer"></span>
-                <button mat-button [routerLink]="['/gallery', next]"><span
-                        class="fa fa-chevron-right fa-lg"> > </span></button>
+                <button mat-button (click)="onBack()">
+                    <mat-icon>history</mat-icon> BACK
+                </button>
+                <button mat-button [routerLink]="['/phongtranh', next]"><span class="fa fa-chevron-right fa-lg"> >
+                    </span></button>
+                <span class="flex-spacer"></span>
             </mat-card-actions>
         </mat-card-footer>
     </mat-card>

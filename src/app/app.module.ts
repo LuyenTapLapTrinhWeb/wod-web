@@ -43,6 +43,7 @@ import { CarouselComponent } from 'ngx-owl-carousel-o';
 import { Page404Component } from './page404/page404.component';
 import { GallerydetailguardService } from './gallery-detail/gallerydetailguard.service';
 import { GalleryresolveService } from './gallery-detail/galleryresolve.service';
+import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,6 +60,7 @@ import { GalleryresolveService } from './gallery-detail/galleryresolve.service';
     GalleryDetailComponent,
     HeroesComponent,
     Page404Component,
+    ForbiddenValidatorDirective,
   ],
   imports: [
     BrowserModule,

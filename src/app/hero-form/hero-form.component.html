@@ -4,16 +4,40 @@
         <mat-form-field class="half-width">
             <input matInput formControlName="firstname" placeholder="First Name" type="text" required>
         </mat-form-field>
+        <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert alert-danger">
+
+            <div *ngIf="firstname.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="firstname.errors.minlength">
+                Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="firstname.errors.forbiddenName">
+                Name cannot be Bob.
+            </div>
+        </div>
         <mat-form-field class="half-width">
-            <input matInput formControlName="lastname" placeholder="Last Name" type="text" required>
+            <input matInput formControlName="lastname" appForbiddenName="bob" placeholder="Last Name" type="text" required>
         </mat-form-field>
+        <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert alert-danger">
+
+            <div *ngIf="lastname.errors.required">
+                Name is required.
+            </div>
+            <div *ngIf="lastname.errors.minlength">
+                Name must be at least 4 characters long.
+            </div>
+            <div *ngIf="lastname.errors.forbiddenName">
+                Name cannot be Bob.
+            </div>
+        </div>
         <mat-form-field class="half-width">
             <input matInput formControlName="telnum" placeholder="Tel. Num" type="text" required>
         </mat-form-field>
         <mat-form-field class="half-width">
             <input matInput formControlName="email" placeholder="Email" type="text" required>
         </mat-form-field>
-        <mat-slide-toggle formControlName="argee">May we contact you?</mat-slide-toggle>
+        <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
         <mat-form-field appearance="fill">
             <mat-label>How?</mat-label>
             <mat-select placeholder="How?" formControlName="contacttype">
@@ -25,6 +49,7 @@
         <mat-form-field>
             <textarea matInput formControlName="message" placeholder="Your Feedback" rows="8"></textarea>
         </mat-form-field>
-        <button mat-button class="background-primary text-floral-white" type="submit">Submit</button>
+        <button mat-button class="background-primary text-floral-white submit" type="submit"
+            disabled="!feedBackForm.invalid">Submit</button>
     </form>
 </div>

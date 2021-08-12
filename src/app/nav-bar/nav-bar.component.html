@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" *ngIf="links">
+<mat-toolbar color="primary" *ngIf="links" appSticky (offset)="getOffset($event)" id="screen-list-search">
     <mat-list-item *ngFor="let link of links">
         <a *ngIf="link.show" mat-button [routerLink]="link.url" routerLinkActive="router-link-active"
             matTooltip="{{link.description}}" matTooltipClass="tooltip">

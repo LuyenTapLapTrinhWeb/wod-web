@@ -44,6 +44,8 @@ import { Page404Component } from './page404/page404.component';
 import { GallerydetailguardService } from './gallery-detail/gallerydetailguard.service';
 import { GalleryresolveService } from './gallery-detail/galleryresolve.service';
 import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
+import { StickyDirective } from './services/stickyElement/sticky.directive';
+import { WINDOW_PROVIDERS } from './services/stickyElement/window.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,7 @@ import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
     HeroesComponent,
     Page404Component,
     ForbiddenValidatorDirective,
+    StickyDirective,
   ],
   imports: [
     BrowserModule,
@@ -89,7 +92,8 @@ import { ForbiddenValidatorDirective } from './shared/forbidden-name.directive';
     GalleryService,
     VideoService,
     GallerydetailguardService,
-    GalleryresolveService
+    GalleryresolveService,
+    WINDOW_PROVIDERS,
   ],
   bootstrap: [AppComponent]
 })
